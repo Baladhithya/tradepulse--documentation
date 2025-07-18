@@ -1,74 +1,135 @@
-# TradePulse - Live Strategy Backtester
 
-## Overview
 
-TradePulse is a high-performance Live-to-Test Strategy Pipeline that enables seamless development, backtesting, and deployment of trading strategies. The system provides a comprehensive framework for strategy development, rigorous backtesting with realistic market conditions, and real-time performance tracking in a live shadow environment.
+# **TradePulse - Live Strategy Backtester**
 
-## Key Features
+## **Overview**
 
-- **High-Performance Backtesting Engine**: Event-driven simulation with realistic market conditions
-- **Live Shadow Environment**: Real-time strategy execution without capital risk
-- **Multi-Asset Support**: Trade across multiple cryptocurrency pairs simultaneously
-- **Advanced Risk Management**: Real-time position monitoring and risk controls
-- **Strategy Optimization**: Parameter optimization with walk-forward analysis
-- **Market Regime Detection**: Adaptive strategies based on market conditions
-- **Comprehensive Analytics**: Performance attribution and risk metrics
+**TradePulse** is a high-performance Live-to-Test Strategy Pipeline that enables seamless development, backtesting, and deployment of trading strategies. It offers a comprehensive framework for:
 
-## System Architecture
+* Strategy development
+* Realistic backtesting
+* Live shadow trading with no capital risk
+* Performance monitoring
 
-<img width="655" height="420" alt="image" src="https://github.com/user-attachments/assets/3033de4d-8e40-4563-aba2-ed08f12f588a" />
+---
 
-## Quick Start
+## **Key Features**
 
-### Prerequisites
-- C++17 or higher
-- CMake 3.10+
-- Python 3.7+ (for analysis scripts)
+* **⚡ High-Performance Backtesting Engine**
+  Event-driven simulation with realistic market microstructure.
 
-### Build Instructions
+* **🟢 Live Shadow Environment**
+  Real-time strategy execution without using real capital.
 
-\`\`\`bash
-# Clone and build
+* **📊 Multi-Asset Support**
+  Trade across multiple crypto pairs (e.g., BTC/USDT, ETH/USDT, etc.).
+
+* **🛡️ Advanced Risk Management**
+  Dynamic position sizing and portfolio-level risk limits.
+
+* **🧠 Strategy Optimization**
+  Walk-forward analysis and parameter sweeps.
+
+* **📈 Market Regime Detection**
+  Adapt strategy logic based on volatility, momentum, or trend regimes.
+
+* **📉 Performance Analytics**
+  Comprehensive metrics: returns, drawdown, Sharpe, Sortino, VaR, alpha/beta attribution.
+
+---
+
+## **System Architecture**
+
+![TradePulse Architecture](https://github.com/user-attachments/assets/3033de4d-8e40-4563-aba2-ed08f12f588a)
+
+### **Modules**
+
+* **Data Ingestion:** Historical CSV or live feed (Binance WebSocket)
+* **Timeframe Aggregator:** Resamples data from 5s to 1m, 5m, etc.
+* **Strategy Engine:** Plug-and-play strategy execution
+* **Risk Manager:** Enforces max drawdown, position limits, and scaling
+* **Trade Logger:** Persists every trade, signal, and fill
+* **Performance Analyzer:** Evaluates metrics in real-time
+* **Market Regime Detector:** Adjusts logic based on volatility & trend
+
+---
+
+## **Quick Start**
+
+### **Prerequisites**
+
+* C++17 or later
+* CMake ≥ 3.10
+* Python 3.7+ (for real-time streaming)
+
+---
+
+### **Build Instructions**
+
+```bash
+# Clone repository
+git clone https://github.com/your-org/tradepulse.git
+cd tradepulse
+
+# Build the C++ project
 mkdir build && cd build
 cmake ..
 make -j4
 
-# Run backtesting
+# Run backtest mode
 ./tradepulse
 
-# For live shadow trading
-python scripts/binance_stream.py 1  # Start BTC data stream
-./tradepulse  # Select live shadow mode
-\`\`\`
+# Start live shadow trading
+python scripts/binance_stream.py 1  # Start 5s Binance BTC feed
+./tradepulse  # Choose 'live' mode in CLI
+```
 
-## Supported Strategies
+---
 
-1. **SMA Strategy**: Simple Moving Average crossover with aggressive parameters
-2. **EMA-RSI Strategy**: Exponential Moving Average with RSI confirmation
-3. **Momentum Strategy**: Price momentum with volume confirmation
-4. **Breakout Strategy**: High/low breakout with volume and ATR filters
-5. **Volatility Expansion**: ATR-based volatility breakout strategy
+## **Supported Strategies**
 
-## Performance Metrics
+| Strategy             | Description                                       |
+| -------------------- | ------------------------------------------------- |
+| SMA Crossover        | Simple moving average cross with fast/slow params |
+| EMA-RSI              | EMA crossover confirmed by RSI filters            |
+| Momentum Strategy    | Momentum rank with volume spike confirmation      |
+| Breakout Strategy    | High/low breakout with ATR and volume filters     |
+| Volatility Expansion | Breakout strategy based on volatility bursts      |
 
-The system tracks comprehensive performance metrics:
-- **Return Metrics**: Total return, Sharpe ratio, Sortino ratio
-- **Risk Metrics**: Maximum drawdown, VaR, volatility
-- **Trade Metrics**: Win rate, profit factor, average trade duration
-- **System Metrics**: Processing speed, latency, resource usage
+Strategies are modular and can be registered via `strategy_registry.hpp`.
 
-## Directory Structure
+---
 
-<img width="614" height="261" alt="image" src="https://github.com/user-attachments/assets/44e21f74-53e6-4e8d-b4ae-5645f6bc2a06" />
+## **Performance Metrics**
 
+| Category       | Metrics Tracked                                 |
+| -------------- | ----------------------------------------------- |
+| Return Metrics | Total Return, Annualized Return, CAGR           |
+| Risk Metrics   | Max Drawdown, Sharpe, Sortino, Value-at-Risk    |
+| Trade Metrics  | Win Rate, Profit Factor, Avg Duration, Avg R\:R |
+| System Metrics | Orders/sec, Latency, CPU/RAM Usage              |
 
-## License
-Done by : 
-Baladhithya T
+All results are saved in `/logs/performance.csv` and can be visualized via Python.
 
-baladhithyat@gmail.com
+---
 
-+91 9751418918
+## **Directory Structure**
 
-This project is developed for the GoQuant recruitment process.
+Architecture visual aid:
+
+![Directory Structure](https://github.com/user-attachments/assets/44e21f74-53e6-4e8d-b4ae-5645f6bc2a06)
+
+---
+
+## **License & Credits**
+
+Developed by:
+
+**Baladhithya T**
+📧 [baladhithyat@gmail.com](mailto:baladhithyat@gmail.com)
+📱 +91 9751418918
+
+This project was developed as part of the **GoQuant Recruitment Process**.
+
+---
 
