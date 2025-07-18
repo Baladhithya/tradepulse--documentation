@@ -70,8 +70,8 @@ mkdir build && cd build
 cmake ..
 cmake --build . --config Debug
 
-# Run backtest mode
-./tradepulse
+# Run the file
+./Debug/tradepulse.exe
 
 # Start live shadow trading
 python scripts/binance_stream.py 1  # Start 5s Binance BTC feed
