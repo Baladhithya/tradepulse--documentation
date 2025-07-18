@@ -366,6 +366,8 @@ const int DEFAULT_COOLDOWN_CANDLES = 10;
 const double DEFAULT_VOLUME_THRESHOLD = 1.2;
 ```
 
----
+--
 
-Let me know if you'd like the HTML version of this too, or zipped with other documents!
+Baladhithya T
+
+baladhithyat@gmail.com
