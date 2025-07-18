@@ -1,7 +1,7 @@
 
 # Thank You Note
 
-## Gratitude and Reflection
+## Gratitude
 
 I would like to sincerely thank **GoQuant** for the incredible opportunity to work on the **Back End - Live Strategy Backtester** project. This experience has been both challenging and immensely rewarding, allowing me to push the boundaries of my technical capabilities and expand my understanding of quantitative trading systems.
 
@@ -9,10 +9,14 @@ By the first day, I started learning about these new terms and was little bit wo
 
 On the second day of the assignment, I started to develop the backtest engine and spent over 8 hours in that and developing scripts and drew a roadmap for things what to be compeleted on which day. I was very happy with my performance for the first 2 days.
 I introduced multi assets to the program and then scaled it accordingly.
+
 On the third day, I started working on the Live shadow environment, which I considered was the toughest part of this project. I was suck in the loop of getting the real time data but the strategies were not been running on those candle of datas. 
+
 On the fourth day, I almost lost hope and thought of giving up on this project. But then I studied the strategy again and changed the values and made the data to work on the fifth day.
+
 On the sixth day, I went through the requirements again and added the features that was missing and completed the project.
-On the lasst day of the assignment, I made the entire docuentation that was needed to submit and prepared the video and uploaded in youtube and mailed it to the officials.
+
+On the last day of the assignment, I made the entire docuentation that was needed to submit and prepared the video and uploaded in youtube and mailed it to the officials.
 
 
 This assignment was not just a development task — it was a comprehensive journey through the world of algorithmic trading infrastructure, system design, and performance engineering. From handling raw financial data to deploying a full-fledged simulation of a live trading environment, every phase of this project was a learning milestone.
