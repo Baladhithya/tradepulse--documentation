@@ -6,7 +6,7 @@
 
 All trading strategies must inherit from the base `Strategy` class:
 
-\`\`\`cpp
+cpp
 class Strategy {
 public:
     virtual void on_data(const Candle& candle, const Candle* high_tf = nullptr) = 0;
@@ -19,7 +19,7 @@ public:
 protected:
     TradeEngine* engine = nullptr;
 };
-\`\`\`
+
 
 #### Methods
 
@@ -56,7 +56,7 @@ protected:
 ### Data Structures
 
 #### Candle Structure
-\`\`\`cpp
+cpp
 struct Candle {
     std::string symbol;                              // Trading symbol
     std::string timestamp_str;                       // Human-readable timestamp
@@ -67,10 +67,10 @@ struct Candle {
     double close;                                    // Closing price
     double volume;                                   // Trading volume
 };
-\`\`\`
+
 
 #### Trade Record Structure
-\`\`\`cpp
+cpp
 struct TradeRecord {
     std::string symbol;                              // Trading symbol
     std::chrono::system_clock::time_point entry_time; // Trade entry time
@@ -81,13 +81,13 @@ struct TradeRecord {
     double profit;                                   // Trade profit/loss
     bool win;                                        // True if profitable trade
 };
-\`\`\`
+
 
 ## Strategy Examples
 
 ### 1. Simple Moving Average Strategy
 
-\`\`\`cpp
+cpp
 class SMA_Strategy : public Strategy {
 public:
     SMA_Strategy(int short_period = 3, int long_period = 8);
@@ -109,10 +109,10 @@ private:
 
     double compute_sma(const std::deque<double>& prices, int period) const;
 };
-\`\`\`
+
 
 **Implementation Example:**
-\`\`\`cpp
+cpp
 void SMA_Strategy::on_data(const Candle& low_tf, const Candle* high_tf) {
     price_window.push_back(low_tf.close);
     if (price_window.size() > static_cast<size_t>(long_period))
@@ -141,11 +141,11 @@ void SMA_Strategy::on_data(const Candle& low_tf, const Candle* high_tf) {
         }
     }
 }
-\`\`\`
+
 
 ### 2. EMA-RSI Strategy
 
-\`\`\`cpp
+cpp
 class EMARSI_Strategy : public Strategy {
 public:
     void on_data(const Candle& low_tf, const Candle* high_tf = nullptr) override;
@@ -173,13 +173,13 @@ private:
     double compute_rsi() const;
     double compute_atr() const;
 };
-\`\`\`
+
 
 ## Trading Engine API
 
 ### TradeEngine Class
 
-\`\`\`cpp
+cpp
 class TradeEngine {
 public:
     TradeEngine(double capital, Mode mode, const std::string& log_file,
@@ -199,7 +199,7 @@ public:
     double get_portfolio_value() const;
     double get_realized_pnl() const;
 };
-\`\`\`
+
 
 #### Methods
 
@@ -226,7 +226,7 @@ public:
 
 ### RiskManager Class
 
-\`\`\`cpp
+cpp
 class RiskManager {
 public:
     RiskManager(const RiskLimits& limits);
@@ -243,11 +243,11 @@ public:
     const RiskMetrics& get_metrics() const;
     const RiskLimits& get_limits() const;
 };
-\`\`\`
+
 
 ### RiskLimits Structure
 
-\`\`\`cpp
+cpp
 struct RiskLimits {
     double max_position_size = 0.1;        // 10% of portfolio
     double max_daily_loss = 0.02;          // 2% daily loss limit
@@ -256,13 +256,13 @@ struct RiskLimits {
     double correlation_limit = 0.7;        // Max correlation between positions
     int max_positions = 5;                 // Max concurrent positions
 };
-\`\`\`
+
 
 ## Portfolio Management API
 
 ### PortfolioManager Class
 
-\`\`\`cpp
+cpp
 class PortfolioManager {
 public:
     PortfolioManager(double initial_capital, std::shared_ptr<RiskManager> risk_mgr);
@@ -281,11 +281,11 @@ public:
     
     double get_cash() const;
 };
-\`\`\`
+
 
 ### Position Structure
 
-\`\`\`cpp
+cpp
 struct Position {
     std::string symbol;
     double quantity = 0.0;
@@ -295,13 +295,13 @@ struct Position {
     std::chrono::system_clock::time_point entry_time;
     std::vector<TradeRecord> trades;
 };
-\`\`\`
+
 
 ## Performance Analytics API
 
 ### PerformanceAnalyzer Class
 
-\`\`\`cpp
+cpp
 class PerformanceAnalyzer {
 public:
     static PerformanceReport analyze_strategy(
@@ -322,11 +322,11 @@ public:
         const std::string& output_file
     );
 };
-\`\`\`
+
 
 ### PerformanceReport Structure
 
-\`\`\`cpp
+cpp
 struct PerformanceReport {
     // Return Metrics
     double total_return = 0.0;
@@ -350,24 +350,24 @@ struct PerformanceReport {
     double profit_factor = 0.0;
     double avg_trade_duration_hours = 0.0;
 };
-\`\`\`
+
 
 ## Data Loading API
 
 ### DataLoader Functions
 
-\`\`\`cpp
+cpp
 // Load single CSV file
 std::vector<Candle> load_csv_data(const std::string& filename);
 
 // Load multiple assets
 std::unordered_map<std::string, std::vector<Candle>>
 load_multiple_assets(const std::vector<std::pair<std::string, std::string>>& asset_files);
-\`\`\`
+
 
 ### TimeframeAggregator Class
 
-\`\`\`cpp
+cpp
 class TimeframeAggregator {
 public:
     void set_timeframes(const std::vector<std::string>& tfs);
@@ -377,7 +377,7 @@ public:
 private:
     int tf_to_seconds(const std::string& tf) const;
 };
-\`\`\`
+
 
 **Supported Timeframes:**
 - `"1m"`: 1 minute (60 seconds)
@@ -389,7 +389,7 @@ private:
 
 ### Metrics Calculation
 
-\`\`\`cpp
+cpp
 class Metrics {
 public:
     static MetricsResult compute(const std::vector<TradeRecord>& trades,
@@ -406,20 +406,20 @@ struct MetricsResult {
     double win_rate = 0;
     double avg_profit = 0;
 };
-\`\`\`
+
 
 ### Trade Logging
 
-\`\`\`cpp
+cpp
 void export_trades_to_csv(const std::string& filename, 
                          const std::vector<TradeRecord>& trades);
-\`\`\`
+
 
 ## Configuration and Constants
 
 ### Default Parameters
 
-\`\`\`cpp
+cpp
 // Trading Engine Defaults
 const double DEFAULT_SLIPPAGE_BPS = 2.0;      // 2 basis points
 const int DEFAULT_LATENCY_SEC = 5;            // 5 seconds
@@ -435,11 +435,11 @@ const int DEFAULT_MAX_POSITIONS = 5;
 // Strategy Defaults
 const int DEFAULT_COOLDOWN_CANDLES = 10;
 const double DEFAULT_VOLUME_THRESHOLD = 1.2;
-\`\`\`
+
 
 ### File Paths and Naming Conventions
 
-\`\`\`cpp
+cpp
 // Log Files
 "logs/trades_{STRATEGY}_{SYMBOL}.csv"          // Trade records
 "logs/{STRATEGY}_{SYMBOL}_equity.csv"          // Equity curve
@@ -454,7 +454,7 @@ const double DEFAULT_VOLUME_THRESHOLD = 1.2;
 "plots/{STRATEGY}_equity_curve.png"            // Equity curve chart
 "plots/{STRATEGY}_drawdown.png"                // Drawdown chart
 "plots/{STRATEGY}_win_loss_distribution.png"   // Win/loss distribution
-\`\`\`
+
 
 This API documentation provides the essential interfaces for developing custom strategies and extending the TradePulse system. All classes follow RAII principles and provide exception-safe operations.
-\`\`\`
+
