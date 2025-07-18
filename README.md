@@ -67,14 +67,12 @@
 ### **Build Instructions**
 
 ```bash
-# Clone repository
-git clone https://github.com/your-org/tradepulse.git
-cd tradepulse
+# Open the file in VS Code
 
 # Build the C++ project
 mkdir build && cd build
 cmake ..
-make -j4
+cmake --build . --config Debug
 
 # Run backtest mode
 ./tradepulse
