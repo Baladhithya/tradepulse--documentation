@@ -16,26 +16,7 @@ TradePulse is a high-performance Live-to-Test Strategy Pipeline that enables sea
 
 ## System Architecture
 
-\`\`\`
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Data Layer    │    │  Strategy Layer │    │ Execution Layer │
-├─────────────────┤    ├─────────────────┤    ├─────────────────┤
-│ • Data Loader   │    │ • SMA Strategy  │    │ • Trade Engine  │
-│ • CSV Parser    │    │ • EMA-RSI       │    │ • Order Queue   │
-│ • Live Feeds    │    │ • Momentum      │    │ • Slippage      │
-│ • Timeframe     │    │ • Breakout      │    │ • Latency       │
-│   Aggregator    │    │ • Volatility    │    │ • Portfolio Mgr │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         └───────────────────────┼───────────────────────┘
-                                 │
-┌─────────────────────────────────┼─────────────────────────────────┐
-│                    Analytics & Risk Layer                        │
-├─────────────────────────────────┼─────────────────────────────────┤
-│ • Performance Analyzer  • Risk Manager  • System Monitor        │
-│ • Market Regime Detector • Strategy Optimizer                   │
-└─────────────────────────────────────────────────────────────────┘
-\`\`\`
+<img width="655" height="420" alt="image" src="https://github.com/user-attachments/assets/3033de4d-8e40-4563-aba2-ed08f12f588a" />
 
 ## Quick Start
 
@@ -78,19 +59,8 @@ The system tracks comprehensive performance metrics:
 
 ## Directory Structure
 
-\`\`\`
-tradepulse/
-├── src/                    # Core C++ source files
-├── include/                # Header files
-├── scripts/                # Python analysis scripts
-├── data/                   # Historical market data
-├── build/                  # build file
-    ├── logs/                   # Trade logs and debug files
-    ├── reports/                # Generated HTML reports
-    ├── plots/                  # Performance charts
-    └── docs/                   # Documentation
-└── CMakeLists.txt          # CMake build configuration
-\`\`\`
+<img width="614" height="261" alt="image" src="https://github.com/user-attachments/assets/44e21f74-53e6-4e8d-b4ae-5645f6bc2a06" />
+
 
 ## License
 Done by : 
@@ -99,5 +69,6 @@ Baladhithya T
 baladhithyat@gmail.com
 
 +91 9751418918
+
 This project is developed for the GoQuant recruitment process.
 \`\`\`
