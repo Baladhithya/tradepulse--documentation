@@ -1,8 +1,6 @@
+# TradePulse - Live Strategy Backtester
 
-
-# **TradePulse - Live Strategy Backtester**
-
-## **Overview**
+## Overview
 
 **TradePulse** is a high-performance Live-to-Test Strategy Pipeline that enables seamless development, backtesting, and deployment of trading strategies. It offers a comprehensive framework for:
 
@@ -13,7 +11,7 @@
 
 ---
 
-## **Key Features**
+## Key Features
 
 * **⚡ High-Performance Backtesting Engine**
   Event-driven simulation with realistic market microstructure.
@@ -38,11 +36,11 @@
 
 ---
 
-## **System Architecture**
+## System Architecture
 
 ![TradePulse Architecture](https://github.com/user-attachments/assets/3033de4d-8e40-4563-aba2-ed08f12f588a)
 
-### **Modules**
+### Modules
 
 * **Data Ingestion:** Historical CSV or live feed (Binance WebSocket)
 * **Timeframe Aggregator:** Resamples data from 5s to 1m, 5m, etc.
@@ -54,17 +52,15 @@
 
 ---
 
-## **Quick Start**
+## Quick Start
 
-### **Prerequisites**
+### Prerequisites
 
 * C++17 or later
 * CMake ≥ 3.10
 * Python 3.7+ (for real-time streaming)
 
----
-
-### **Build Instructions**
+### Build Instructions
 
 ```bash
 # Open the file in VS Code
@@ -84,7 +80,7 @@ python scripts/binance_stream.py 1  # Start 5s Binance BTC feed
 
 ---
 
-## **Supported Strategies**
+## Supported Strategies
 
 | Strategy             | Description                                       |
 | -------------------- | ------------------------------------------------- |
@@ -98,7 +94,7 @@ Strategies are modular and can be registered via `strategy_registry.hpp`.
 
 ---
 
-## **Performance Metrics**
+## Performance Metrics
 
 | Category       | Metrics Tracked                                 |
 | -------------- | ----------------------------------------------- |
@@ -111,7 +107,7 @@ All results are saved in `/logs/performance.csv` and can be visualized via Pytho
 
 ---
 
-## **Directory Structure**
+## Directory Structure
 
 Architecture visual aid:
 
@@ -119,15 +115,25 @@ Architecture visual aid:
 
 ---
 
-## **License & Credits**
+## License & Credits
 
 Developed by:
 
 **Baladhithya T**
 📧 [baladhithyat@gmail.com](mailto:baladhithyat@gmail.com)
-📱 +91 9751418918
+📞 +91 9751418918
 
 This project was developed as part of the **GoQuant Recruitment Process**.
 
 ---
+
+## Additional Deliverables
+
+* ✅ `performance.md` - Performance benchmarking and system latency
+* ✅ `backtesting.md` - Assumptions, validation, and methodology
+* ✅ `architecture.puml` - PlantUML diagram for system architecture
+* ✅ `technical_report.md` - Design trade-offs, roadmap, best practices
+
+For details, see `/docs/` folder.
+For pdfs, see '/doucumetation_as_pdfs/' folder
 
